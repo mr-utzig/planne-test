@@ -1,0 +1,38 @@
+@host = http://localhost:8080/v1
+@buckets = {{host}}/buckets
+@fruits = {{host}}/fruits
+
+GET {{buckets}}
+
+###
+
+POST {{buckets}}
+Content-Type: application/json
+
+{"capacity": 10}
+
+###
+
+DELETE {{buckets}}/4
+
+###
+
+POST {{buckets}}/4/fruits
+Content-Type: application/json
+
+{"fruit_id": 6}
+
+###
+
+DELETE  {{buckets}}/4/fruits/1
+
+###
+
+POST {{fruits}}
+Content-Type: application/json
+
+{"name": "Test Fruit", "price": 9.99, "expires_in_seconds": 3600}
+
+###
+
+DELETE {{fruits}}/1
